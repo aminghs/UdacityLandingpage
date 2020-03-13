@@ -36,15 +36,11 @@
 // build the nav
 function myFunction() {
     var li = document.createElement("a");
-    var li2 = document.createElement("a");
+    const array
     li.appendChild(document.createTextNode("Home"));
-    li2.appendChild(document.createTextNode("About"));
     li.setAttribute("class", "menu__link" );
-    li2.setAttribute("class", "menu__link" );
     document.getElementById("navbar__list").appendChild(li);
-    document.getElementById("navbar__list").appendChild(li2);
     li.href = "#section1";
-    li2.href = "#section2";
 }
 myFunction();
 
