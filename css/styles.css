@@ -58,6 +58,7 @@ main {
 section {
     position: relative;
     min-height: 80vh;
+    scroll-snap-align: center;
 }
 
 

@@ -34,32 +34,45 @@
 */
 
 // build the nav
-function myFunction() {
-    for (let i = 1; i < 5; i++)
-        const li = document.createElement("a");
-        li.appendChild(document.createTextNode("Menu" + i));
-        li.setAttribute("class", "menu__link" );
-        document.getElementById("navbar__list").appendChild(li);
-        li.href = "#section"+i;
+
+    function myFunction() {
+    
+    var li = document.createElement("a");
+    li.appendChild(document.createTextNode("Home"));
+    li.setAttribute("class", "menu__link" );
+    document.getElementById("navbar__list").appendChild(li);
+    li.href = "#section1"
+    var li = document.createElement("a");
+    li.appendChild(document.createTextNode("Home2"));
+    li.setAttribute("class", "menu__link" );
+    document.getElementById("navbar__list").appendChild(li);
+    li.href = "#section2"
+    var li = document.createElement("a");
+    li.appendChild(document.createTextNode("Home3"));
+    li.setAttribute("class", "menu__link" );
+    document.getElementById("navbar__list").appendChild(li);
+    li.href = "#section3"
+    var li = document.createElement("a");
+    li.appendChild(document.createTextNode("Home4"));
+    li.setAttribute("class", "menu__link" );
+    document.getElementById("navbar__list").appendChild(li);
+    li.href = "#section4"
 }
 myFunction();
 
 
 // Add class 'active' to section when near top of viewport
-
+const section1 = document.querySelectorAll('section.your-active-class');
+window.addEventListener("scroll" , function(){
+    if (section1.getBoundingClientRect().top < window.innerHeight)
+    section1.style.background = 'red';
+})
 
 // Scroll to anchor ID using scrollTO event
 
-const section1 = document.querySelector(section1);
-
-window.addEventListener("scroll" , function() {
-
-    if(section1.getBoundingClientRect().top < window.innerHeight ) {
-        section1.style.background = 'red';
-    }
-}
-
-)
+const scroll = new SmoothScroll('.navbar__menu a[href*="#"]', {
+    speed: 500
+    });
 
 
 /**
