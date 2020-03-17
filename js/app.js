@@ -35,38 +35,40 @@
 
 // build the nav
 
-    function myFunction() {
-    
-    var li = document.createElement("a");
-    li.appendChild(document.createTextNode("Home"));
+function myFunction() {   
+    for (let i = 1; i < 5; i++) {      
+    const li = document.createElement("a");
+    li.appendChild(document.createTextNode("Menu" + i));
     li.setAttribute("class", "menu__link" );
     document.getElementById("navbar__list").appendChild(li);
-    li.href = "#section1"
-    var li = document.createElement("a");
-    li.appendChild(document.createTextNode("Home2"));
-    li.setAttribute("class", "menu__link" );
-    document.getElementById("navbar__list").appendChild(li);
-    li.href = "#section2"
-    var li = document.createElement("a");
-    li.appendChild(document.createTextNode("Home3"));
-    li.setAttribute("class", "menu__link" );
-    document.getElementById("navbar__list").appendChild(li);
-    li.href = "#section3"
-    var li = document.createElement("a");
-    li.appendChild(document.createTextNode("Home4"));
-    li.setAttribute("class", "menu__link" );
-    document.getElementById("navbar__list").appendChild(li);
-    li.href = "#section4"
+    li.href = "#section"+i;
+    }
 }
-myFunction();
+    myFunction();
 
 
 // Add class 'active' to section when near top of viewport
-const section1 = document.querySelectorAll('section.your-active-class');
-window.addEventListener("scroll" , function(){
-    if (section1.getBoundingClientRect().top < window.innerHeight)
-    section1.style.background = 'red';
-})
+const callback = entries => {
+    entries.forEach(entry => {
+      const navListElement = document.querySelector(
+        `.menu__link[data-link='${entry.target.id}']`,
+      )
+      const section = document.getElementById(entry.target.id)
+  
+      if (entry && entry.isIntersecting) {
+        navListElement.classList.add('active')
+        section.classList.add('active')
+      } else {
+        if (navListElement.classList.contains('active')) {
+          navListElement.classList.remove('active')
+        }
+  
+        if (section.classList.contains('active')) {
+          section.classList.remove('active')
+        }
+      }
+    })
+  }
 
 // Scroll to anchor ID using scrollTO event
 
